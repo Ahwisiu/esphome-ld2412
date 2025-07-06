@@ -2,7 +2,6 @@ import esphome.codegen as cg
 from esphome.components import switch
 import esphome.config_validation as cv
 from esphome.const import (
-    CONF_BLUETOOTH,
     DEVICE_CLASS_SWITCH,
     ENTITY_CATEGORY_CONFIG,
     ICON_BLUETOOTH,
@@ -15,6 +14,7 @@ BluetoothSwitch = LD2412_ns.class_("BluetoothSwitch", switch.Switch)
 EngineeringModeSwitch = LD2412_ns.class_("EngineeringModeSwitch", switch.Switch)
 
 CONF_ENGINEERING_MODE = "engineering_mode"
+CONF_BLUETOOTH = "bluetooth"
 
 CONFIG_SCHEMA = {
     cv.GenerateID(CONF_LD2412_ID): cv.use_id(LD2412Component),
