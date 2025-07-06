@@ -206,8 +206,7 @@ static bool validate_header_footer(const uint8_t *header_footer, const uint8_t *
 }
 
 void LD2412Component::dump_config() {
-  std::string mac_str =
-      mac_address_is_valid(this->mac_address_) ? format_mac_address_pretty(this->mac_address_) : UNKNOWN_MAC;
+  std::string mac_str = UNKNOWN_MAC;
   std::string version = str_sprintf(VERSION_FMT, this->version_[1], this->version_[0], this->version_[5],
                                     this->version_[4], this->version_[3], this->version_[2]);
   ESP_LOGCONFIG(TAG,
@@ -604,8 +603,7 @@ bool LD2412Component::handle_ack_data_() {
         std::memcpy(this->mac_address_, &this->buffer_data_[10], sizeof(this->mac_address_));
       }
 
-      std::string mac_str =
-          mac_address_is_valid(this->mac_address_) ? format_mac_address_pretty(this->mac_address_) : UNKNOWN_MAC;
+      std::string mac_str = UNKNOWN_MAC;
       ESP_LOGV(TAG, "MAC address: %s", mac_str.c_str());
 #ifdef USE_TEXT_SENSOR
       if (this->mac_text_sensor_ != nullptr) {
